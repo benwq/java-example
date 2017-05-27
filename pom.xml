@@ -26,5 +26,11 @@
 
     <modules>
         <module>concurrent</module>
+        <module>dataapi</module>
+        <module>dataapi</module>
+        <module>dataapi</module>
+        <module>dataapi</module>
+        <module>dataapi</module>
+        <module>pluginApi</module>
     </modules>
 </project>
