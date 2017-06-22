@@ -10,6 +10,11 @@ public class TestHarness {
     public long timeTasks(int nThreads,final Runnable task) throws InterruptedException{
         final CountDownLatch startGrade = new CountDownLatch(1);
         final CountDownLatch endGrade = new CountDownLatch(nThreads);
+
+        for(int i=0;i<nThreads;i++){
+
+        }
+
         long start = System.nanoTime();
         endGrade.await();
         long end = System.nanoTime();
