@@ -32,5 +32,9 @@
         <module>dataapi</module>
         <module>dataapi</module>
         <module>pluginApi</module>
+        <module>javassist_test</module>
+        <module>reflect</module>
+        <module>springboot</module>
+        <module>reflect</module>
     </modules>
 </project>
