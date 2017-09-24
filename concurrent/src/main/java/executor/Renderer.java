@@ -1,12 +1,8 @@
 package executor;
 
-import entities.Ad;
-import entities.ImageData;
-import entities.ImageInfo;
-import entities.Page;
+import entities.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.*;
 
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
@@ -26,10 +22,10 @@ public class Renderer {
         this.executorService = executorService;
     }
 
-    void renderPage(CharSequence source){
+    void renderPage(CharSequence source) {
         List<ImageInfo> info = scanForImageInfo(source);
         CompletionService<ImageData> completionService = new ExecutorCompletionService<ImageData>(executorService);
-        for(final ImageInfo imageInfo:info){
+        for (final ImageInfo imageInfo : info) {
             completionService.submit(new Callable<ImageData>() {
                 @Override
                 public ImageData call() throws Exception {
@@ -42,38 +38,37 @@ public class Renderer {
         try {
             for (int t = 0, n = info.size(); t < n; t++) {
                 Future<ImageData> f = completionService.take();
-                ImageData imageData  = f.get();
+                ImageData imageData = f.get();
                 renderImage(imageData);
             }
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-        }
-        catch (ExecutionException e){
+        } catch (ExecutionException e) {
             e.getCause();
         }
     }
 
-    void renderText(CharSequence source){
+    void renderText(CharSequence source) {
 
     }
 
-    void renderImage(ImageData imageData){
+    void renderImage(ImageData imageData) {
 
     }
 
-    Page renderPageWithAd() throws InterruptedException{
-       long endNanos = System.nanoTime() + TIME_BUDGET;
+    Page renderPageWithAd() throws InterruptedException {
+        long endNanos = System.nanoTime() + TIME_BUDGET;
         Page page = renderPageBody();
         Ad ad;
-        Future<Ad> f = executorService.submit(new Callable<Ad>(){
+        Future<Ad> f = executorService.submit(new Callable<Ad>() {
             @Override
             public Ad call() throws Exception {
                 return new Ad();
             }
         });
         try {
-            long timeLeft = endNanos-System.nanoTime();
-            ad = f.get(timeLeft,NANOSECONDS);
+            long timeLeft = endNanos - System.nanoTime();
+            ad = f.get(timeLeft, NANOSECONDS);
         } catch (ExecutionException e) {
             ad = DEFAULT_AD;
             e.printStackTrace();
@@ -86,11 +81,63 @@ public class Renderer {
         return page;
     }
 
-    Page renderPageBody(){
+    Page renderPageBody() {
         return new Page();
     }
 
-    List<ImageInfo> scanForImageInfo(CharSequence sequence){
+    List<ImageInfo> scanForImageInfo(CharSequence sequence) {
         return new ArrayList<ImageInfo>();
     }
+
+    /**
+     * Created by benwq on 2017/7/5.
+     */
+    public class QuoteTask implements Callable<TravelQuote> {
+        private final TravelCompony compony;
+        private final TravelInfo travelInfo;
+
+        public QuoteTask(TravelCompony compony, TravelInfo travelInfo) {
+            this.compony = compony;
+            this.travelInfo = travelInfo;
+        }
+
+        @Override
+        public TravelQuote call() throws Exception {
+            return compony.solicitQuote(travelInfo);
+        }
+
+        public TravelQuote getFailureQuote(Throwable throwable){
+            return new TravelQuote();
+        }
+
+        public TravelQuote getTimeoutQuote(CancellationException e){
+            return new TravelQuote();
+        }
+    }
+
+    public List<TravelQuote> getRankedTravelQuotes(TravelInfo travelInfo, Set<TravelCompony> travelComponies,
+                                                   Comparator<TravelQuote> ranking, long time, TimeUnit timeUnit)
+            throws InterruptedException {
+        List<QuoteTask> quoteTasks = new ArrayList<>();
+        for(TravelCompony travelCompony:travelComponies){
+            quoteTasks.add(new QuoteTask(travelCompony,travelInfo));
+        }
+        List<Future<TravelQuote>> futures = executorService.invokeAll(quoteTasks,time,timeUnit);
+        List<TravelQuote> travelQuotes = new ArrayList<>(quoteTasks.size());
+        Iterator<QuoteTask> iterable = quoteTasks.iterator();
+        for(Future<TravelQuote> f:futures){
+            QuoteTask task = iterable.next();
+            try {
+                travelQuotes.add(f.get());
+            } catch (ExecutionException e) {
+                travelQuotes.add(task.getFailureQuote(e.getCause()));
+            } catch (CancellationException e){
+                travelQuotes.add(task.getTimeoutQuote(e));
+            }
+        }
+        Collections.sort(travelQuotes,ranking);
+        return travelQuotes;
+    }
 }
+
+
