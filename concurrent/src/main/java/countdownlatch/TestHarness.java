@@ -7,6 +7,7 @@ import java.util.concurrent.SynchronousQueue;
  * Created by benwq on 2017/5/26.
  */
 public class TestHarness {
+
     public long timeTasks(int nThreads,final Runnable task) throws InterruptedException{
         final CountDownLatch startGrade = new CountDownLatch(1);
         final CountDownLatch endGrade = new CountDownLatch(nThreads);

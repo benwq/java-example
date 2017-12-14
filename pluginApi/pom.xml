@@ -46,6 +46,12 @@
             <artifactId>jodd-core</artifactId>
             <version>3.7.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.jython</groupId>
+            <artifactId>jython</artifactId>
+            <version>2.7.0</version>
+        </dependency>
     </dependencies>
 
 

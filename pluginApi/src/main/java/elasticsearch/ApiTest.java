@@ -1,14 +1,7 @@
 package elasticsearch;
 
-import com.sun.scenario.Settings;
-import com.sun.xml.internal.bind.v2.TODO;
-import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.client.Client;
-import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-
 import java.io.IOException;
+
 
 /**
  * Created by benwq on 2017/5/10.

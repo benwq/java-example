@@ -10,6 +10,7 @@ public class ConcurrentHashMapTest {
     static ConcurrentHashMap<String,Object> map = new ConcurrentHashMap<String,Object>();
 
     public static void main(String[]args){
+        map.putIfAbsent("a",true);
         map.put("a","a");
         map.get("a");
     }
