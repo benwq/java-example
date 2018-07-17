@@ -1,0 +1,25 @@
+Java HotSpot(TM) 64-Bit Server VM (25.51-b03) for windows-amd64 JRE (1.8.0_51-b16), built on Jun  8 2015 18:03:07 by "java_re" with MS VC++ 10.0 (VS2010)
+Memory: 4k page, physical 16691028k(8366580k free), swap 19181396k(4805972k free)
+CommandLine flags: -XX:InitialHeapSize=267056448 -XX:MaxHeapSize=4272903168 -XX:+PrintGC -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintReferenceGC -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:-UseLargePagesIndividualAllocation -XX:+UseParallelGC 
+2018-04-24T19:44:48.262+0800: 0.142: Total time for which application threads were stopped: 0.0000837 seconds, Stopping threads took: 0.0000241 seconds
+2018-04-24T19:44:48.264+0800: 0.144: Total time for which application threads were stopped: 0.0013335 seconds, Stopping threads took: 0.0012719 seconds
+2018-04-24T19:44:48.417+0800: 0.297: [GC (Allocation Failure)  65536K->61937K(251392K), 0.0482594 secs]
+2018-04-24T19:44:48.465+0800: 0.345: Total time for which application threads were stopped: 0.0484820 seconds, Stopping threads took: 0.0000241 seconds
+2018-04-24T19:44:48.485+0800: 0.365: [GC (Allocation Failure)  127473K->119537K(316928K), 0.0635598 secs]
+2018-04-24T19:44:48.549+0800: 0.429: Total time for which application threads were stopped: 0.0637094 seconds, Stopping threads took: 0.0000189 seconds
+2018-04-24T19:44:48.610+0800: 0.490: [GC (Allocation Failure)  250609K->242865K(375296K), 0.1033287 secs]
+2018-04-24T19:44:48.714+0800: 0.593: [Full GC (Ergonomics)  242865K->241847K(622080K), 3.0266011 secs]
+2018-04-24T19:44:51.740+0800: 3.620: Total time for which application threads were stopped: 3.1302658 seconds, Stopping threads took: 0.0000158 seconds
+2018-04-24T19:44:51.876+0800: 3.755: [GC (Allocation Failure)  372919K->367164K(674304K), 0.1651686 secs]
+2018-04-24T19:44:52.041+0800: 3.921: [Full GC (Ergonomics)  367164K->350366K(918016K), 1.4695291 secs]
+2018-04-24T19:44:53.511+0800: 5.390: Total time for which application threads were stopped: 1.6351469 seconds, Stopping threads took: 0.0000351 seconds
+2018-04-24T19:44:53.518+0800: 5.397: Total time for which application threads were stopped: 0.0000975 seconds, Stopping threads took: 0.0000383 seconds
+2018-04-24T19:44:53.524+0800: 5.403: Total time for which application threads were stopped: 0.0001058 seconds, Stopping threads took: 0.0000379 seconds
+2018-04-24T19:44:53.566+0800: 5.445: [GC (Allocation Failure)  529529K->526214K(984576K), 0.5293770 secs]
+2018-04-24T19:44:54.095+0800: 5.975: Total time for which application threads were stopped: 0.5295760 seconds, Stopping threads took: 0.0000193 seconds
+2018-04-24T19:44:54.103+0800: 5.982: Total time for which application threads were stopped: 0.0071684 seconds, Stopping threads took: 0.0071048 seconds
+2018-04-24T19:44:54.156+0800: 6.036: Total time for which application threads were stopped: 0.0062644 seconds, Stopping threads took: 0.0062135 seconds
+2018-04-24T19:44:54.157+0800: 6.036: Total time for which application threads were stopped: 0.0000667 seconds, Stopping threads took: 0.0000375 seconds
+2018-04-24T19:44:54.157+0800: 6.036: Total time for which application threads were stopped: 0.0000513 seconds, Stopping threads took: 0.0000304 seconds
+2018-04-24T19:44:54.159+0800: 6.038: Total time for which application threads were stopped: 0.0001417 seconds, Stopping threads took: 0.0000533 seconds
+2018-04-24T19:44:54.162+0800: 6.042: Total time for which application threads were stopped: 0.0001090 seconds, Stopping threads took: 0.0000375 seconds

@@ -16,6 +16,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -27,16 +28,12 @@
     <modules>
         <module>concurrent</module>
         <module>dataapi</module>
-        <module>dataapi</module>
-        <module>dataapi</module>
-        <module>dataapi</module>
-        <module>dataapi</module>
         <module>pluginApi</module>
         <module>javassist_test</module>
-        <module>reflect</module>
         <module>springboot</module>
         <module>reflect</module>
         <module>spider</module>
         <module>sqlhandler</module>
+        <module>jvmtest</module>
     </modules>
 </project>
