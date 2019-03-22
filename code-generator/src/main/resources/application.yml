@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username: lj_test
+    password: 1
+    url: jdbc:mysql://192.168.253.8:3306/ljzf_device_data
