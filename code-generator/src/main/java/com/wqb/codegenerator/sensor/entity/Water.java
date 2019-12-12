@@ -19,9 +19,9 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sensor_atmosphere")
-@ApiModel(value="Atmosphere对象", description="")
-public class Atmosphere implements Serializable {
+@TableName("sensor_water")
+@ApiModel(value="Water对象", description="")
+public class Water implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,19 +30,19 @@ public class Atmosphere implements Serializable {
     @ApiModelProperty(value = "关联基础数据中的id号")
     private String tagName;
 
-    @ApiModelProperty(value = "温度")
+    @ApiModelProperty(value = "PH")
     private Float tag1;
 
-    @ApiModelProperty(value = "湿度")
+    @ApiModelProperty(value = "电导")
     private Float tag2;
 
-    @ApiModelProperty(value = "PM2.5")
+    @ApiModelProperty(value = "溶解氧")
     private Float tag3;
 
-    @ApiModelProperty(value = "PM10")
+    @ApiModelProperty(value = "浊度")
     private Float tag4;
 
-    @ApiModelProperty(value = "负离子")
+    @ApiModelProperty(value = "温度")
     private Float tag5;
 
 

@@ -1,0 +1,10 @@
+spring:
+  redis:
+    host: 172.19.1.202
+#    host: 47.99.81.82
+#    password: Supconit001
+    port: 6379
+    database: 3
+
+server:
+  port: 8080

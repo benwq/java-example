@@ -1,6 +1,6 @@
 package com.wqb.codegenerator.sensor.mapper;
 
-import com.wqb.codegenerator.sensor.entity.Atmosphere;
+import com.wqb.codegenerator.sensor.entity.Water;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author benwq
  * @since 2019-03-22
  */
-public interface AtmosphereMapper extends BaseMapper<Atmosphere> {
+public interface WaterMapper extends BaseMapper<Water> {
 
 }

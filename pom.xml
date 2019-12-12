@@ -27,6 +27,7 @@
 
     <modules>
         <module>concurrent</module>
+        <module>smtp</module>
         <module>dataapi</module>
         <module>pluginApi</module>
         <module>javassist_test</module>
@@ -35,6 +36,7 @@
         <module>spider</module>
         <module>sqlhandler</module>
         <module>jvmtest</module>
+        <module>bloomfilter</module>
     </modules>
 
 </project>

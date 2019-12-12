@@ -7,8 +7,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import com.wqb.codegenerator.sensor.entity.Atmosphere;
-import com.wqb.codegenerator.sensor.service.IAtmosphereService;
+import com.wqb.codegenerator.sensor.entity.Water;
+import com.wqb.codegenerator.sensor.service.IWaterService;
 
 
 import org.springframework.web.bind.annotation.RestController;
@@ -23,12 +23,12 @@ import com.tangguangdi.base.BaseController;
  * @since 2019-03-22
  */
 @RestController
-@RequestMapping("/sensor/atmosphere")
+@RequestMapping("/sensor/water")
 @Api(description = "")
-public class AtmosphereController extends BaseController {
+public class WaterController extends BaseController {
 
     @Autowired
-    private IAtmosphereService atmosphereService;
+    private IWaterService waterService;
 
     /**
      * 列表
@@ -36,8 +36,8 @@ public class AtmosphereController extends BaseController {
     @PostMapping(value = "/list")
     @ApiOperation(value = "列表", notes = "列表")
     public Object list() {
-        QueryWrapper<Atmosphere> wrapper = new QueryWrapper<>();
-        return renderSuccess(atmosphereService.list(wrapper));
+        QueryWrapper<Water> wrapper = new QueryWrapper<>();
+        return renderSuccess(waterService.list(wrapper));
     }
 
      /**
@@ -45,9 +45,9 @@ public class AtmosphereController extends BaseController {
      */
     @PostMapping(value = "/page")
     @ApiOperation(value = "分页", notes = "分页")
-    public Object page(Page<Atmosphere> page) {
-        QueryWrapper<Atmosphere> wrapper = new QueryWrapper<>();
-        return renderSuccess(atmosphereService.page(page, wrapper));
+    public Object page(Page<Water> page) {
+        QueryWrapper<Water> wrapper = new QueryWrapper<>();
+        return renderSuccess(waterService.page(page, wrapper));
     }
 
     /**
@@ -56,7 +56,7 @@ public class AtmosphereController extends BaseController {
     @GetMapping(value = "/getById/{id}")
     @ApiOperation(value = "详情", notes = "详情")
     public Object getById(@PathVariable("id") Long id) {
-        return renderSuccess(atmosphereService.getById(id));
+        return renderSuccess(waterService.getById(id));
     }
 
      /**
@@ -64,9 +64,8 @@ public class AtmosphereController extends BaseController {
      */
     @PostMapping(value = "/save")
     @ApiOperation(value = "新增", notes = "新增")
-    public Object save(Atmosphere atmosphere) {
-        atmosphere.setId(null);
-        return renderSuccess(atmosphereService.save(atmosphere));
+    public Object save(Water water) {
+        return renderSuccess(waterService.save(water));
     }
 
     /**
@@ -75,7 +74,7 @@ public class AtmosphereController extends BaseController {
     @PostMapping(value = "/removeById")
     @ApiOperation(value = "删除", notes = "删除")
     public Object removeById(@RequestParam Long id) {
-        return renderSuccess(atmosphereService.removeById(id));
+        return renderSuccess(waterService.removeById(id));
     }
 
     /**
@@ -83,7 +82,7 @@ public class AtmosphereController extends BaseController {
      */
     @PostMapping(value = "/updateById")
     @ApiOperation(value = "修改", notes = "修改")
-    public Object updateById(Atmosphere atmosphere) {
-        return renderSuccess(atmosphereService.updateById(atmosphere));
+    public Object updateById(Water water) {
+        return renderSuccess(waterService.updateById(water));
     }
 }

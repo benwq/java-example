@@ -1,6 +1,6 @@
 package com.wqb.codegenerator.sensor.service;
 
-import com.wqb.codegenerator.sensor.entity.Atmosphere;
+import com.wqb.codegenerator.sensor.entity.Water;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author benwq
  * @since 2019-03-22
  */
-public interface IAtmosphereService extends IService<Atmosphere> {
+public interface IWaterService extends IService<Water> {
 
 }

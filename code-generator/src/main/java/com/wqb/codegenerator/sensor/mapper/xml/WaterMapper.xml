@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wqb.codegenerator.sensor.mapper.AtmosphereMapper">
+<mapper namespace="com.wqb.codegenerator.sensor.mapper.WaterMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wqb.codegenerator.sensor.entity.Atmosphere">
+    <resultMap id="BaseResultMap" type="com.wqb.codegenerator.sensor.entity.Water">
         <id column="date" property="date" />
         <result column="tag_name" property="tagName" />
         <result column="tag1" property="tag1" />
