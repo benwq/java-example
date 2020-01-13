@@ -37,6 +37,7 @@
         <module>sqlhandler</module>
         <module>jvmtest</module>
         <module>bloomfilter</module>
+        <module>leetcode</module>
     </modules>
 
 </project>
