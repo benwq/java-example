@@ -38,6 +38,7 @@
         <module>jvmtest</module>
         <module>bloomfilter</module>
         <module>leetcode</module>
+		<module>processing</module>
     </modules>
 
 </project>
