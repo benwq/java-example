@@ -19,39 +19,33 @@ public class LiftCar {
     private Lift parent;
     private Integer doorState;
     private Integer runState;
-    private Float maxSpeedAbs;
-    private Float acc;
-    private Float speed;
+
     private Float posY;
+    private Integer currentFloor;
+    private Integer nextFloor;
 
-    private Integer initFloor;
-
-    public LiftCar(PApplet applet, Lift parent, Integer initFloor, Integer runState) {
+    public LiftCar(PApplet applet, Lift parent, Integer currentFloor, Integer runState) {
         this.applet = applet;
         this.parent = parent;
         this.doorState = 0;
         this.runState = runState;
-        this.maxSpeedAbs = 40f;
-        this.acc = 20f;
-        this.posY = parent.getHigh() / parent.getMaxFloor() * (parent.getMaxFloor() - initFloor - 1);
-        this.speed = 0f;
+        this.currentFloor = currentFloor;
+//        this.posY = parent.getHigh() / parent.getEndFloor() * (parent.getEndFloor() - currentFloor - 1);
+        this.posY = parent.getHigh()/(parent.getEndFloor()-parent.getStartFloor())*(parent.getEndFloor()-currentFloor-1);
     }
 
-    public void update() {
+    public void move(ExecutionWork work) {
+        Integer targetFloor = work.getNextFloor();
+        float speed = parent.getSpeed();
         //向上为-，向下为+，静止为0
-        float speedAdd = runState * acc * (1 / applet.frameRate);
-        float curSpeed = speedAdd + speed;
-        int dire = curSpeed >= 0 ? 1 : -1;
-        float speedAbs = PApplet.abs(curSpeed);
-        speed = dire * (speedAbs <= maxSpeedAbs ? speedAbs : maxSpeedAbs);
-        posY = posY - speed * (1 / applet.frameRate);
-        if (posY < 0) {
-            runState = -1;
-            speed = 0f;
-        } else if (posY > parent.getHigh() - parent.getSize()) {
-            runState = 1;
-            speed = 0f;
+        if (targetFloor > currentFloor) {
+            speed = speed * -1;
+        } else if (targetFloor < currentFloor) {
+            speed = speed * 1;
+        } else {
+            speed = 0;
         }
+        posY = posY - speed * (1 / applet.frameRate);
     }
 
     public void display() {
