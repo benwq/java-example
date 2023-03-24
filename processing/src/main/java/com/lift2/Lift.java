@@ -86,8 +86,7 @@ public class Lift {
 
     public void display() {
         p.pushMatrix();
-        p.translate(posX, posY, 0);
-        p.translate(0, yOffset, 0);
+        p.translate(posX, posY + yOffset, 0);
         p.rotateY(angle);
         car.display();
         track.display();

@@ -35,7 +35,7 @@ public class MyLift2 extends PApplet {
             lift.update();
             lift.display();
         }
-        stroke(0,255,255);
+        stroke(125, 125, 255);
         line(0, pixelHeight / 2 - 170, pixelWidth, pixelHeight / 2 - 170);
         line(0, pixelHeight / 2 + 170, pixelWidth, pixelHeight / 2 + 170);
     }
@@ -75,7 +75,7 @@ public class MyLift2 extends PApplet {
             Random r = new Random();
             while (true) {
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(15000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
